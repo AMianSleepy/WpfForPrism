@@ -19,6 +19,6 @@
             <Button Content="模块C" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="UserControlC"></Button>
         </StackPanel>
 
-        <ContentControl Grid.Row="1" Content="{Binding ShowContent}"></ContentControl>
+        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion"></ContentControl>
     </Grid>
 </Window>
