@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyToDo.View
+namespace WpfForPrism.View
 {
     /// <summary>
     /// UserControlC.xaml 的交互逻辑

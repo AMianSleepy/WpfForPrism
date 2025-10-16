@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ModuleA.ViewModels
 {
-    internal class ViewAViewModel : BindableBase, INavigationAware
+    internal class ViewAViewModel : BindableBase, IConfirmNavigationRequest// INavigationAware
     {
 		/// <summary>
 		/// 绑定的内容
@@ -27,11 +28,25 @@ namespace ModuleA.ViewModels
 		}
 
 		/// <summary>
-		/// 是否重用实例
+		/// 确认
 		/// </summary>
 		/// <param name="navigationContext"></param>
-		/// <returns></returns>
+		/// <param name="continuationCallback"></param>
 		/// <exception cref="NotImplementedException"></exception>
+        public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
+        {
+			bool result = true;
+			result = MessageBox.Show("确认切换模块？", "提示", MessageBoxButton.YesNo) == MessageBoxResult.Yes;
+
+			continuationCallback(result);
+        }
+
+        /// <summary>
+        /// 是否重用实例
+        /// </summary>
+        /// <param name="navigationContext"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
 			return true;
