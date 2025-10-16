@@ -12,4 +12,13 @@
     <PackageReference Include="Prism.DryIoc" Version="9.0.537" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Modules\ModuleA.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Modules\ModuleB.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

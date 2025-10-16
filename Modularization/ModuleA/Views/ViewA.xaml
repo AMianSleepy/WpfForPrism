@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="我是模块A" FontSize="100"></TextBlock>
+        <TextBlock Text="{Binding Msg}" FontSize="100"></TextBlock>
     </Grid>
 </UserControl>

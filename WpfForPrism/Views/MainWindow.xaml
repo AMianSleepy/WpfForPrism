@@ -14,9 +14,8 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <Button Content="模块A" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="UserControlA"></Button>
-            <Button Content="模块B" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="UserControlB"></Button>
-            <Button Content="模块C" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="UserControlC"></Button>
+            <Button Content="模块A" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="ViewA"></Button>
+            <Button Content="模块B" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="ViewB"></Button>
         </StackPanel>
 
         <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion"></ContentControl>

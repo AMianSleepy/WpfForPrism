@@ -26,9 +26,14 @@ namespace MyToDo
         /// <param name="containerRegistry"></param>
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<UserControlA>();
-            containerRegistry.RegisterForNavigation<UserControlB>();
-            containerRegistry.RegisterForNavigation<UserControlC>();
+            //containerRegistry.RegisterForNavigation<UserControlA>();
+            //containerRegistry.RegisterForNavigation<UserControlB>();
+            //containerRegistry.RegisterForNavigation<UserControlC>();
+        }
+
+        protected override IModuleCatalog CreateModuleCatalog()
+        {
+            return new DirectoryModuleCatalog() { ModulePath = @".\Modules" };
         }
     }
 
