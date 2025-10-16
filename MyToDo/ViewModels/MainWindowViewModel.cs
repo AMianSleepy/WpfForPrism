@@ -12,9 +12,13 @@ namespace MyToDo.ViewModels
     {
         public DelegateCommand<string> ShowContentCmm { get; set; }
 
-        public MainWindowViewModel()
+        private readonly IRegionManager RegionManager;
+
+        public MainWindowViewModel(IRegionManager _RegionManager)
         {
             ShowContentCmm = new DelegateCommand<string>(ShowContentFunc);
+
+            RegionManager = _RegionManager;
         }
 
         /// <summary>
@@ -23,18 +27,7 @@ namespace MyToDo.ViewModels
         /// <param name="viewName"></param>
         private void ShowContentFunc(string viewName)
         {
-            if (viewName == "UserControlA")
-            {
-                ShowContent = new UserControlA();
-            }
-            if (viewName == "UserControlB")
-            {
-                ShowContent = new UserControlB();
-            }
-            if (viewName == "UserControlC")
-            {
-                ShowContent = new UserControlC();
-            }
+            RegionManager.Regions["ContentRegion"].RequestNavigate(viewName);
         }
 
         /// <summary>

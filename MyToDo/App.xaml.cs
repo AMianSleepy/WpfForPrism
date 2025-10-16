@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using MyToDo.View;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -25,7 +26,9 @@ namespace MyToDo
         /// <param name="containerRegistry"></param>
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            containerRegistry.RegisterForNavigation<UserControlA>();
+            containerRegistry.RegisterForNavigation<UserControlB>();
+            containerRegistry.RegisterForNavigation<UserControlC>();
         }
     }
 
