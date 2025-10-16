@@ -11,15 +11,41 @@ namespace WpfForPrism.ViewModels
 {
     internal class MainWindowViewModel : BindableBase
     {
+        /// <summary>
+        /// 导航记录
+        /// </summary>
+        private IRegionNavigationJournal Journal;
+
         public DelegateCommand<string> ShowContentCmm { get; set; }
 
+        /// <summary>
+        /// 后退命令
+        /// </summary>
+        public DelegateCommand BackCmm { get; set; }
+
+        /// <summary>
+        /// 区域管理
+        /// </summary>
         private readonly IRegionManager RegionManager;
 
         public MainWindowViewModel(IRegionManager _RegionManager)
         {
             ShowContentCmm = new DelegateCommand<string>(ShowContentFunc);
+            BackCmm = new DelegateCommand(Back);
 
             RegionManager = _RegionManager;
+        }
+
+        /// <summary>
+        /// 后退方法
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void Back()
+        {
+            if (Journal != null && Journal.CanGoBack)
+            {
+                Journal.GoBack();
+            }
         }
 
         /// <summary>
@@ -33,7 +59,10 @@ namespace WpfForPrism.ViewModels
                 { "MsgA","导航A"}
             };
 
-            RegionManager.Regions["ContentRegion"].RequestNavigate(viewName, keyValuePairs);
+            RegionManager.Regions["ContentRegion"].RequestNavigate(viewName, callback=>
+            {
+                Journal = callback.Context.NavigationService.Journal;
+            },keyValuePairs);
         }
 
         /// <summary>
