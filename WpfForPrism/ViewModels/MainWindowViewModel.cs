@@ -1,4 +1,5 @@
-﻿using MyToDo.View;
+﻿using DryIoc.ImTools;
+using MyToDo.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,12 @@ namespace MyToDo.ViewModels
         /// <param name="viewName"></param>
         private void ShowContentFunc(string viewName)
         {
-            RegionManager.Regions["ContentRegion"].RequestNavigate(viewName);
+            NavigationParameters keyValuePairs = new()
+            {
+                { "MsgA","导航A"}
+            };
+
+            RegionManager.Regions["ContentRegion"].RequestNavigate(viewName, keyValuePairs);
         }
 
         /// <summary>

@@ -3,5 +3,5 @@
     <Project Path="Modularization/ModuleA/ModuleA.csproj" Id="115150c0-bea3-4ace-8785-b0f8db509f90" />
     <Project Path="Modularization/ModuleB/ModuleB.csproj" Id="c5f2a8d7-a69a-47a8-ac75-52b090d49fd9" />
   </Folder>
-  <Project Path="MyToDo/MyToDo.csproj" />
+  <Project Path="WpfForPrism/WpfForPrism.csproj" />
 </Solution>
