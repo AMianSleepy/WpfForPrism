@@ -1,0 +1,24 @@
+﻿<Window x:Class="MyToDo.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyToDo"
+        mc:Ignorable="d"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="模块A" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="UserControlA"></Button>
+            <Button Content="模块B" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="UserControlB"></Button>
+            <Button Content="模块C" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="UserControlC"></Button>
+        </StackPanel>
+
+        <ContentControl Grid.Row="1" Content="{Binding ShowContent}"></ContentControl>
+    </Grid>
+</Window>
