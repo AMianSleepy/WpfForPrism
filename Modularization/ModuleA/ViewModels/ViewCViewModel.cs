@@ -10,6 +10,49 @@ namespace ModuleA.ViewModels
     {
         public DialogCloseListener RequestClose { get; set; }
 
+        public ViewCViewModel()
+        {
+            ConfirmCmm = new DelegateCommand(Confirm);
+            CancelCmm = new DelegateCommand(Cancel);
+        }
+
+        /// <summary>
+        /// 确定命令
+        /// </summary>
+        public DelegateCommand ConfirmCmm { get; set; }
+
+        /// <summary>
+        /// 取消命令
+        /// </summary>
+        public DelegateCommand CancelCmm { get; set; }
+
+        /// <summary>
+        /// 确定
+        /// </summary>
+        private void Confirm()
+        {
+            if (RequestClose.WeakRefReuseWrapperGCed() != null)
+            {
+                DialogParameters paras = new()
+                {
+                    { "Result1", "张三" },
+                    { "Result2", 100 }
+                };
+                RequestClose.Invoke(paras,ButtonResult.OK);
+            }
+        }
+
+        /// <summary>
+        /// 取消
+        /// </summary>
+        private void Cancel()
+        {
+            if (RequestClose.WeakRefReuseWrapperGCed() != null)
+            {
+                RequestClose.Invoke(new DialogResult(ButtonResult.No));
+            }
+        }
+
         /// <summary>
         /// 是否能够关闭对话框
         /// </summary>
@@ -25,7 +68,7 @@ namespace ModuleA.ViewModels
         /// <exception cref="NotImplementedException"></exception>
         public void OnDialogClosed()
         {
-            
+
         }
 
         /// <summary>
@@ -35,7 +78,10 @@ namespace ModuleA.ViewModels
         /// <exception cref="NotImplementedException"></exception>
         public void OnDialogOpened(IDialogParameters parameters)
         {
-            
+            // 主窗口向对话框传值
+            string s1 = parameters.GetValue<string>("Title");
+            string s2 = parameters.GetValue<string>("paras1");
+            string s3 = parameters.GetValue<string>("paras2");
         }
     }
 }

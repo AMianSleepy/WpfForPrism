@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ModuleA.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="600">
+             d:DesignHeight="250" d:DesignWidth="400">
     <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -15,8 +15,8 @@
         <TextBlock Text="温馨提示"></TextBlock>
         <TextBlock Text="打开了对话框！" FontSize="30" Height="186" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Width="570"/>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button Content="确定"></Button>
-            <Button Content="取消"></Button>
+            <Button Content="确定" Command="{Binding ConfirmCmm}"></Button>
+            <Button Content="取消" Command="{Binding CancelCmm}"></Button>
         </StackPanel>
     </Grid>
 </UserControl>

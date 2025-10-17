@@ -89,7 +89,26 @@ namespace WpfForPrism.ViewModels
         /// <param name="ucName">用户控件名称</param>
         private void ShowDialogFunc(string ucName)
         {
-            DialogService.ShowDialog(ucName);
+            DialogParameters paras = new()
+            {
+                {"Title","传入标题" },
+                {"paras1","业务参数值1" },
+                {"paras2","业务参数值2" }
+            };
+
+            DialogService.ShowDialog(ucName, paras,
+                callback => 
+                {
+                    if (callback.Result == ButtonResult.OK)
+                    {
+                        // 获取对话框传来的值
+                        if (callback.Parameters.ContainsKey("Result1"))// 接收参数前都应该先判断
+                        {
+                            string r1 = callback.Parameters.GetValue<string>("Result1");
+                        }
+                        string r2 = callback.Parameters.GetValue<string>("Result2");
+                    }
+                });
         }
 
         /// <summary>
