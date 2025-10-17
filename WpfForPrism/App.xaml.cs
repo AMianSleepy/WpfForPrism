@@ -1,9 +1,9 @@
-﻿using MyToDo.View;
+﻿using WpfForPrism.View;
 using System.Configuration;
 using System.Data;
 using System.Windows;
 
-namespace MyToDo
+namespace WpfForPrism
 {
     /// <summary>
     /// Interaction logic for App.xaml
