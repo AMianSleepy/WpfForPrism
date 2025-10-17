@@ -22,8 +22,12 @@ namespace ModuleA
         /// registered here will be available for resolution throughout the application's lifetime.</remarks>
         /// <param name="containerRegistry">The container registry used to register types for dependency injection. Cannot be null.</param>
         public void RegisterTypes(IContainerRegistry containerRegistry)
-        {                                                  //手动绑定视图模型
+        {
+            // 注入导航服务                                手动绑定视图模型
             containerRegistry.RegisterForNavigation<ViewA, ViewAViewModel>();
+
+            // 注入对话框服务
+            containerRegistry.RegisterDialog<ViewC, ViewCViewModel>();
         }
     }
 }

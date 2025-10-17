@@ -24,16 +24,34 @@ namespace WpfForPrism.ViewModels
         public DelegateCommand BackCmm { get; set; }
 
         /// <summary>
+        /// 打开对话框命令
+        /// </summary>
+        public DelegateCommand<string> ShowDialogCmm { get; set; }
+
+        /// <summary>
         /// 区域管理
         /// </summary>
         private readonly IRegionManager RegionManager;
 
-        public MainWindowViewModel(IRegionManager _RegionManager)
+        /// <summary>
+        /// 对话框服务
+        /// </summary>
+        private readonly IDialogService DialogService;
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="_RegionManager"></param>
+        public MainWindowViewModel(IRegionManager _RegionManager, IDialogService _DialogService)
         {
             ShowContentCmm = new DelegateCommand<string>(ShowContentFunc);
             BackCmm = new DelegateCommand(Back);
 
             RegionManager = _RegionManager;
+
+            // 对话框服务
+            DialogService = _DialogService;
+            ShowDialogCmm = new DelegateCommand<string>(ShowDialogFunc);
         }
 
         /// <summary>
@@ -63,6 +81,15 @@ namespace WpfForPrism.ViewModels
             {
                 Journal = callback.Context.NavigationService.Journal;
             },keyValuePairs);
+        }
+
+        /// <summary>
+        /// 打开对话框方法
+        /// </summary>
+        /// <param name="ucName">用户控件名称</param>
+        private void ShowDialogFunc(string ucName)
+        {
+            DialogService.ShowDialog(ucName);
         }
 
         /// <summary>
