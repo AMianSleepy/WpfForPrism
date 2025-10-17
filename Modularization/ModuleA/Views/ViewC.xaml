@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="ModuleA.Views.ViewC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ModuleA.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="600">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="温馨提示"></TextBlock>
+        <TextBlock Text="打开了对话框！" FontSize="30" Height="186" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Width="570"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button Content="确定"></Button>
+            <Button Content="取消"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -17,6 +17,7 @@
             <Button Content="模块A" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="ViewA"></Button>
             <Button Content="模块B" Width="80" Height="30" Command="{Binding ShowContentCmm}" CommandParameter="ViewB"></Button>
             <Button Content="后退" Width="80" Height="30" Command="{Binding BackCmm}"></Button>
+            <Button Content="打开对话框" Width="80" Height="30" Command="{Binding ShowDialogCmm}" CommandParameter="ViewC"></Button>
         </StackPanel>
 
         <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion"></ContentControl>
